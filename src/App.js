@@ -1,34 +1,40 @@
-
-import './App.css';
-import { Routes,Route } from 'react-router-dom';
-import About from './Pages/About';
-import Home from './Pages/Home';
-import Contact from './Pages/Contact';
-import NAvbar from './Pages/NAvbar';
-import OrderSumarry from './Pages/OrderSumarry';
-import NoMatch from './Pages/NoMatch';
-import Products from './Pages/Product';
-import FeaturedProduacts from './Pages/FeaturedProduacts';
-import NewProducts from './Pages/NewProducts';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import About from "./Pages/About";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import NAvbar from "./Pages/NAvbar";
+import OrderSumarry from "./Pages/OrderSumarry";
+import NoMatch from "./Pages/NoMatch";
+import Products from "./Pages/Product";
+import FeaturedProduacts from "./Pages/FeaturedProduacts";
+import NewProducts from "./Pages/NewProducts";
+import User from "./Pages/User";
+import UserDtls from "./Pages/UserDtls";
+import Admin from "./Pages/Admin";
 
 function App() {
-  return (<>
+  return (
+    <>
       <NAvbar />
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="order-summury" element={<OrderSumarry />} />
 
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About /> } />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='order-summury' element={<OrderSumarry />}/>
-
-        <Route path='products' element= {<Products />} >
+        <Route path="products" element={<Products />}>
           <Route index element={<FeaturedProduacts />} />
-          <Route path='featured' element= {<FeaturedProduacts />} />
-          <Route path='new' element={<NewProducts />}/>  
+          <Route path="featured" element={<FeaturedProduacts />} />
+          <Route path="new" element={<NewProducts />} />
         </Route>
-        <Route path='*' element={<NoMatch /> }/>
+        <Route path="users" element={<User />}>
+          <Route path="/users/:userId" element={<UserDtls />} />
+          <Route path="/users/admin" element={<Admin />} />
+        </Route>
+        <Route path="*" element={<NoMatch />} />
       </Routes>
-      </>
+    </>
   );
 }
 
