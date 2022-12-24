@@ -20,7 +20,9 @@ function App() {
         <Route path='/about' element={<About /> } />
         <Route path='/contact' element={<Contact />} />
         <Route path='order-summury' element={<OrderSumarry />}/>
+
         <Route path='products' element= {<Products />} >
+          <Route index element={<FeaturedProduacts />} />
           <Route path='featured' element= {<FeaturedProduacts />} />
           <Route path='new' element={<NewProducts />}/>  
         </Route>
